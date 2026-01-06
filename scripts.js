@@ -167,57 +167,35 @@ carrossel.addEventListener('touchend', handleEnd);
 updateSlidePosition();
 startAutoSlide(); // Inicia a alternância automática
 
-let dynamicDate = '2025-08-20T00:00:00';
+const targetDateStr = '2026-03-11T00:00:00';
+let countdownInterval;
 
-// Função para alterar o texto e a data
-// function alterarTextoDescricao() {
-//     const enfase = document.querySelector("#enfase-text");
+// Atualiza o tempo restante até a data alvo (contagem regressiva)
+function atualizarTempoDecorrido(dateStr) {
+    const target = new Date(dateStr);
+    const now = new Date();
+    const diff = target - now; // milissegundos restantes
 
-//     if (enfase.classList.contains("acidente")) {
-//         enfase.classList.remove("acidente");
-//         enfase.classList.add("intencional");
-
-//         enfase.innerText = '"EU TE AMO"';
-//         dynamicDate = '2025-02-01T10:33:00'; // Atualiza a data
-//     } else {
-//         enfase.classList.remove("intencional");
-//         enfase.classList.add("acidente");
-
-//         enfase.innerText = '"Porque EU TE AMO"';
-//         dynamicDate = '2025-01-19T03:50:00'; // Atualiza a data
-//     }
-
-//     // Atualiza imediatamente os valores exibidos
-//     atualizarTempoDecorrido(dynamicDate);
-// }
-
-// Atualiza o tempo decorrido
-function atualizarTempoDecorrido(stringData) {
-    const dataInicio = new Date(stringData);
-    const agora = new Date();
-    const diferenca = agora - dataInicio;
-
-    if (diferenca <= 0) {
-        document.getElementById('dias').innerText = "0";
-        document.getElementById('horas').innerText = "0";
-        document.getElementById('minutos').innerText = "0";
-        document.getElementById('segundos').innerText = "0";
+    if (diff <= 0) {
+        document.getElementById('dias').innerText = '00';
+        document.getElementById('horas').innerText = '00';
+        document.getElementById('minutos').innerText = '00';
+        document.getElementById('segundos').innerText = '00';
+        // Mantém o intervalo ativo para que os campos continuem visíveis
         return;
     }
 
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.getElementById('dias').innerText = dias;
-    document.getElementById('horas').innerText = horas;
-    document.getElementById('minutos').innerText = minutos;
-    document.getElementById('segundos').innerText = segundos;
+    document.getElementById('dias').innerText = String(dias).padStart(2, '0');
+    document.getElementById('horas').innerText = String(horas).padStart(2, '0');
+    document.getElementById('minutos').innerText = String(minutos).padStart(2, '0');
+    document.getElementById('segundos').innerText = String(segundos).padStart(2, '0');
 }
 
-// Adicionar evento para alterar o texto e a data (apenas "click" para toque rápido e cliques)
-// document.querySelector("#enfase-text").addEventListener("click", alterarTextoDescricao);
-
-// Atualiza o tempo decorrido a cada segundo
-setInterval(() => atualizarTempoDecorrido(dynamicDate), 1000);
+// Executa imediatamente e inicia o intervalo para atualizar a cada segundo
+atualizarTempoDecorrido(targetDateStr);
+countdownInterval = setInterval(() => atualizarTempoDecorrido(targetDateStr), 1000);
