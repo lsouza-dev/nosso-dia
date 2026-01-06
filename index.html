@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon/coracao.png" type="image/x-icon">
+    <title>R & L</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="Para quem eu amo!">
+    <meta property="og:description" content="Uma data especial merece algo especial,né?">
+    <meta property="og:image" content="https://lsouza-dev.github.io/days-since-three-words/img/banner.png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="418">
+    <meta property="og:type" content="website">
+
+</head>
+
+<body>
+    <div id="intro">
+        <div id="centerContainer">
+            <div id="textContainer">
+                <p id="message"></p>
+            </div>
+            <button id="surpriseButton">Clique Aqui</button>
+        </div>
+    </div>
+    <div class="hearts-container" style="display: none;"></div>
+    <div id="mainContent" style="display: none;">
+        <h1 class="titulo">Ryan e Larissa❤️</h1>
+        <div class="carrossel-container">
+            <div class="carrossel">
+                <div class="slide"><img src="img/1.jpg" alt="Imagem 1"></div>
+                <div class="slide"><img src="img/9.jpg" alt="Imagem 9"></div>
+                <div class="slide"><img src="img/6.jpg" alt="Imagem 6"></div>
+                <div class="slide"><img src="img/2.jpg" alt="Imagem 2"></div>
+                <div class="slide"><img src="img/3.jpg" alt="Imagem 3"></div>
+                <div class="slide"><img src="img/5.jpg" alt="Imagem 5"></div>
+                <div class="slide"><img src="img/4.jpg" alt="Imagem 4"></div>
+                <div class="slide"><img src="img/7.jpg" alt="Imagem 7"></div>
+                <div class="slide"><img src="img/8.jpg" alt="Imagem 8"></div>
+            </div>
+        </div>
+        <div class="indicators">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+        </div>
+        <div class="contagem-regressiva">
+            <p class="descricao">
+                Te  <span id="enfase-text" class="enfase acidente">"AMANDO"</span> ha
+            </p>
+            <div class="tempo-container">
+                <span class="tempo" id="dias"></span>
+                <span class="legenda">Dias</span>
+            </div>
+            <div class="tempo-container">
+                <span class="tempo" id="horas"></span>
+                <span class="legenda">Horas</span>
+            </div>
+            <div class="tempo-container">
+                <span class="tempo" id="minutos"></span>
+                <span class="legenda">Minutos</span>
+            </div>
+            <div class="tempo-container">
+                <span class="tempo" id="segundos"></span>
+                <span class="legenda">Segundos</span>
+            </div>
+        </div>
+        <hr class="divisoria">
+        <div class="declaracao">
+            <p style="line-break:auto;">
+                Oii meu amor! Venho através desse texto declarar um pouco em palavras alguns sentimentos... Não sou bom
+                com palavras, você sabe, sempre foi uma dificuldade pra mim, mas sabe o que nunca foi difícil? (Te
+                amar), te aceitar do jeito que realmente é, você é linda de corpo, alma, espírito e personalidade. Se
+                houvesse ao menos uma porcentagem de pessoas no mundo como você, talvez seria um lugar mais agradável...
+                Por onde você passa, deixa o seu carisma, empatia e um rastro de alegria, Deus me livre de ficar sem
+                esse seu sorriso solto, é a forma mais bonita e singela que eu vejo em você, como se estivesse sorrindo
+                e dizendo "Ei amor, te amo", tens noção que um sorriso pode dizer muito, que esse sorriso me cura todos
+                os dias, que a vida soa da melhor e mais leve forma possível... E tudo isso através dele. Tenho certeza
+                que nossos filhos se apaixonaram por essa pessoa que você é, já consigo ver o brilho nos olhos deles,
+                dizendo "Mamãe, vc é legal, não briga cmg KKKKKK", brincadeira "Mamãe eu te amo". <br> Anseio por esse
+                dia,
+                obrigado por tudo meu amor, Eu te amo.
+                <br>
+                Feliz nosso dia
+            </p>
+
+        </div>
+        <hr class="divisoria">
+
+
+        <h1 class="titulo" style="margin: 0; padding: 0;">Nossa Música 🎼</h1>
+        <div class="video-container">
+                <video class="video" controls>
+                <source src="video/musica.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

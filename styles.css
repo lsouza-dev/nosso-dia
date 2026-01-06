@@ -1,0 +1,383 @@
+* {
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura */
+}
+
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #181818;
+    color: #fff;
+    overflow-x: hidden; /* Evita rolagem lateral */
+    overflow-y: scroll;
+    height: 100dvh;
+}
+
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#centerContainer {
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#textContainer {
+    max-width: 90vw;
+    margin-bottom: auto;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+#textContainer p {
+    text-align: center;
+    padding: 1rem;
+    font-size: 3vw;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #textContainer p {
+        text-align: start;
+        font-size: 5.5vw;
+    }
+}
+
+@media (max-width: 425px) {
+    #textContainer p {
+        text-align: start;
+        font-size: 6.4vw;
+    }
+}
+
+#surpriseButton {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #ff69b4;
+    border: none;
+    border-radius: 10px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 1s ease;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+#surpriseButton.show {
+    opacity: 1;
+    animation: pulse 1s infinite alternate; /* Animação contínua de pulso */
+    margin-top: 5rem;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+#surpriseButton:hover {
+    background-color: #ff85c2;
+}
+
+.animate-expand {
+    animation: expand-and-disappear 1.5s ease forwards;
+}
+
+
+@keyframes expand-and-disappear {
+    0% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+#mainContent {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Centraliza o coração */
+    transform: translateX(-50%);
+    overflow-x: hidden;
+    color: #ff69b4;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(-100dvh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200dvh);
+        opacity: 0;
+    }
+}
+
+.titulo {
+    font-family: 'Dancing Script', cursive;
+    color: #ffffff;
+    margin: 40px 0;
+    text-align: center;
+    font-size: 6.5rem;
+}
+
+.carrossel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 750px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrossel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ajusta a imagem dentro do container */
+    display: block;
+    border-radius: 10px;
+}
+
+
+.indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.indicators {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: red;
+}
+
+.divisoria {
+    width: 82%;
+    margin: 20px auto;
+    border: 1px solid #ffffff;
+}
+
+.contagem-regressiva {
+    color: #ffffff;
+    font-size: 1.5em;
+    max-width: 75%;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Define o espaçamento entre os itens */
+}
+
+.descricao {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    color: #f0f0f0;
+    width: 100%; /* Garante que a descrição ocupe toda a largura na linha */
+}
+
+.enfase {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.tempo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 80px;
+    margin: 5px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    flex: 1 1 calc(25% - 20px); /* Ajusta a largura para 25% menos o espaço definido em gap */
+}
+
+.tempo {
+    font-size: 2em;
+}
+
+.legenda {
+    font-size: 0.75em;
+    color: #b0b0b0;
+}
+
+#enfase-text{
+    cursor: pointer;
+}
+
+/* Media query para telas menores (tablet e abaixo) */
+@media (max-width: 768px) {
+    .tempo-container {
+        flex: 1 1 calc(45% - 20px); /* Ajusta para 45% da largura menos o espaço */
+        padding: 15px;
+    }
+
+    .titulo {
+        font-size: 5rem;
+    }
+
+    .carrossel-container{
+        height: 600px;
+    }
+}
+
+@media (max-width: 500px) {
+
+
+    .titulo {
+        font-size: 3rem;
+    }
+
+    .carrossel-container{
+        height: 320px;
+    }
+    
+}
+
+/* Media query para telas grandes */
+@media (min-width: 768px) {
+    .tempo-container {
+        flex: 1 1 calc(22% - 20px); /* Ajusta a largura para 22% menos o espaço definido em gap */
+        padding: 20px;
+    }
+}
+.declaracao {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin: 20px auto;
+    max-width: 80%;
+    line-height: 1.6;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin:  0 auto 2rem;
+    max-width: 1400px;
+}
+
+.video-container video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
